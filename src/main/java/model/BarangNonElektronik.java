@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-/**
- *
- * @author ASUS FC
- */
 public class BarangNonElektronik extends Barang {
 
     private String kategori;
@@ -21,25 +13,26 @@ public class BarangNonElektronik extends Barang {
         return kategori;
     }
 
-    public void setKategori(String kategori) {
+    private void setKategori(String kategori) {
         if (kategori == null || kategori.trim().isEmpty()) {
-            System.out.println("==================================================================");
-            System.out.println("Kategori tidak boleh kosong.                                      ");
-            System.out.println("==================================================================");
-            return;
+            throw new IllegalArgumentException("Kategori tidak boleh kosong!");
         }
-        this.kategori = kategori;
+        this.kategori = kategori.trim();
+    }
+
+    // ---- Overriding abstract method dari Barang ----
+    @Override
+    public String getJenis() {
+        return "BARANG NON-ELEKTRONIK";
     }
 
     @Override
-    public void tampilkanInfo() {
-        System.out.println("==================================================================");
-        System.out.println("                          BARANG NON ELEKTRONIK                   ");
-        System.out.println("==================================================================");
-        System.out.println("ID Barang:" + getIdBarang());
-        System.out.println("Nama:" + getNama());
-        System.out.println("Stok:" + getStok());
-        System.out.println("Kategori:" + kategori);
-        System.out.println("==================================================================");
+    public String getLabelDetail() {
+        return "Kategori";
+    }
+
+    @Override
+    public String getNilaiDetail() {
+        return getKategori();
     }
 }

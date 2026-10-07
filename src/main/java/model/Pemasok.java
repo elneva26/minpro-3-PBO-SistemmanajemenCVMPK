@@ -1,82 +1,63 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-/**
- *
- * @author ASUS FC
- */
 public class Pemasok {
 
-    private int idPemasok;
+    private final int idPemasok;
     private String nama;
     private String alamat;
     private String noTelepon;
 
     public Pemasok(int idPemasok, String nama, String alamat, String noTelepon) {
-        setIdPemasok(idPemasok);
+        if (idPemasok <= 0) {
+            throw new IllegalArgumentException("ID pemasok tidak valid!");
+        }
+        this.idPemasok = idPemasok;
         setNama(nama);
         setAlamat(alamat);
         setNoTelepon(noTelepon);
+    }
+
+    public static boolean isNoTeleponValid(String noTelepon) {
+        return noTelepon != null && noTelepon.trim().matches("\\d+");
     }
 
     public int getIdPemasok() {
         return idPemasok;
     }
 
-    public void setIdPemasok(int idPemasok) {
-        if (idPemasok <= 0) {
-            System.out.println("==================================================================");
-            System.out.println("ID pemasok tidak valid                                            ");
-            System.out.println("==================================================================");
-            return;
-        }
-        this.idPemasok = idPemasok;
-    }
-
     public String getNama() {
         return nama;
     }
 
-    public void setNama(String nama) {
+    public final void setNama(String nama) {
         if (nama == null || nama.trim().isEmpty()) {
-            System.out.println("==================================================================");
-            System.out.println("Nama pemasok tidak boleh kosong dan wajib diisi!                  ");
-            System.out.println("==================================================================");
-            return;
+            throw new IllegalArgumentException("Nama pemasok tidak boleh kosong!");
         }
-        this.nama = nama;
+        this.nama = nama.trim();
     }
 
     public String getAlamat() {
         return alamat;
     }
 
-    public void setAlamat(String alamat) {
+    public final void setAlamat(String alamat) {
         if (alamat == null || alamat.trim().isEmpty()) {
-            System.out.println("==================================================================");
-            System.out.println("Alamat tidak boleh kosong dan wajib diisi!                        ");
-            System.out.println("==================================================================");
-            return;
+            throw new IllegalArgumentException("Alamat pemasok tidak boleh kosong!");
         }
-        this.alamat = alamat;
-
+        this.alamat = alamat.trim();
     }
 
     public String getNoTelepon() {
         return noTelepon;
     }
 
-    public void setNoTelepon(String noTelepon) {
+    public final void setNoTelepon(String noTelepon) {
         if (noTelepon == null || noTelepon.trim().isEmpty()) {
-            System.out.println("==================================================================");
-            System.out.println("no telepon tidak boleh kosong dan wajib diisi!                    ");
-            System.out.println("==================================================================");
-            return;
+            throw new IllegalArgumentException("No telepon tidak boleh kosong!");
         }
-        this.noTelepon = noTelepon;
-
+        if (!isNoTeleponValid(noTelepon)) {
+            throw new IllegalArgumentException("No telepon harus berupa angka!");
+        }
+        this.noTelepon = noTelepon.trim();
     }
 }

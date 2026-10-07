@@ -1,64 +1,66 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-/**
- *
- * @author ASUS FC
- */
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
+
 public class Pengadaan {
 
-    private int idPengadaan;
+    private static final DateTimeFormatter FORMAT_TANGGAL
+            = DateTimeFormatter.ofPattern("dd/MM/uuuu").withResolverStyle(ResolverStyle.STRICT);
+
+    private final int idPengadaan;
     private String tanggal;
     private String alamat;
 
     public Pengadaan(int idPengadaan, String tanggal, String alamat) {
-        setIdPengadaan(idPengadaan);
+        if (idPengadaan <= 0) {
+            throw new IllegalArgumentException("ID pengadaan tidak valid!");
+        }
+        this.idPengadaan = idPengadaan;
         setTanggal(tanggal);
         setAlamat(alamat);
+    }
+
+    public static boolean isTanggalValid(String tanggal) {
+        if (tanggal == null) {
+            return false;
+        }
+        try {
+            LocalDate.parse(tanggal.trim(), FORMAT_TANGGAL);
+            return true;
+        } catch (DateTimeParseException e) {
+            return false;
+        }
     }
 
     public int getIdPengadaan() {
         return idPengadaan;
     }
 
-    public void setIdPengadaan(int idPengadaan) {
-        if (idPengadaan <= 0) {
-            System.out.println("==================================================================");
-            System.out.println("ID pengadaan tidak valid.                                         ");
-            System.out.println("==================================================================");
-            return;
-        }
-        this.idPengadaan = idPengadaan;
-    }
-
     public String getTanggal() {
         return tanggal;
     }
 
-    public void setTanggal(String tanggal) {
+    public final void setTanggal(String tanggal) {
         if (tanggal == null || tanggal.trim().isEmpty()) {
-            System.out.println("==================================================================");
-            System.out.println(">> Tanggal pengadaan tidak boleh kosong!                          ");
-            System.out.println("==================================================================");
-            return;
+            throw new IllegalArgumentException("Tanggal pengadaan tidak boleh kosong!");
         }
-        this.tanggal = tanggal;
+        if (!isTanggalValid(tanggal)) {
+            throw new IllegalArgumentException("Format tanggal tidak valid! Gunakan dd/MM/yyyy!");
+        }
+        this.tanggal = tanggal.trim();
     }
 
     public String getAlamat() {
         return alamat;
     }
 
-    public void setAlamat(String alamat) {
+    public final void setAlamat(String alamat) {
         if (alamat == null || alamat.trim().isEmpty()) {
-            System.out.println("==================================================================");
-            System.out.println("Alamat pengadaan tidak boleh kosong!                              ");
-            System.out.println("==================================================================");
-            return;
+            throw new IllegalArgumentException("Alamat pengadaan tidak boleh kosong!");
         }
-        this.alamat = alamat;
+        this.alamat = alamat.trim();
     }
 }
