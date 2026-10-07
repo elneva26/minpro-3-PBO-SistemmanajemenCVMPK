@@ -2,7 +2,7 @@
 
 ## SISTEM MANAJEMEN CV MANDIRI PRIMA KREATIF
 
-Repository : `Minpro-3-PBO-Sistem_Manajemen_CVMPK`
+
 
 ---
 
