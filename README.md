@@ -2,6 +2,8 @@
 
 ## SISTEM MANAJEMEN CV MANDIRI PRIMA KREATIF
 
+Repository : `Minpro-3-PBO-Sistem_Manajemen_CVMPK`
+
 ---
 
 Nama : **[ISI NAMA LENGKAP]**
@@ -12,47 +14,71 @@ Kelas : **[ISI KELAS]**
 
 ---
 
+## **DAFTAR ISI**
+
+- [BAB I Pendahuluan](#bab-i-pendahuluan)
+- [BAB II Struktur Package](#bab-ii-struktur-package)
+- [BAB III Alur Program](#bab-iii-alur-program)
+- [BAB IV Validasi Input](#bab-iv-validasi-input)
+- [BAB V Encapsulation dan Inheritance](#bab-v-encapsulation-dan-inheritance)
+- [BAB VI Polymorphism dan Abstraction](#bab-vi-polymorphism-dan-abstraction)
+- [BAB VII Nilai Tambah](#bab-vii-nilai-tambah)
+- [BAB VIII Perbaikan dari Evaluasi Asisten Lab](#bab-viii-perbaikan-dari-evaluasi-asisten-lab)
+- [BAB IX Kesimpulan](#bab-ix-kesimpulan)
+
+---
+
 ## **BAB I PENDAHULUAN**
 
 ### **1.1 Deskripsi Singkat Program**
 
 Sistem Manajemen CV Mandiri Prima Kreatif adalah program berbasis Java (aplikasi konsol) untuk membantu mengelola data pada CV Mandiri Prima Kreatif yang bergerak di bidang elektronik dan pengadaan barang.
 
-Program mengelola tiga jenis data, yaitu **data barang**, **data pemasok**, dan **data pengadaan**, dengan konsep CRUD (Create, Read, Update, Delete). Khusus data barang, tersedia tambahan fitur **cari barang** (berdasarkan ID atau nama).
+Program mengelola tiga jenis data, yaitu **data barang**, **data pemasok**, dan **data pengadaan**, dengan konsep CRUD (Create, Read, Update, Delete). Khusus data barang, tersedia fitur tambahan **Cari Barang** (berdasarkan ID atau nama). Data disimpan sementara di dalam `ArrayList` selama program berjalan, dan sudah tersedia data awal (dummy data) pada tiap controller.
 
-Mini Project 3 merupakan pengembangan dari Mini Project 2 dengan ketentuan:
+### **1.2 Ketentuan Tugas dan Pemenuhannya**
 
-- Menerapkan **polymorphism** (overriding dan overloading)
-- Menerapkan **abstraction** (abstract class dan abstract method)
-- Menerapkan struktur proyek **MVC** (Model, View, Controller)
-- Nilai tambah: menerapkan **interface**
+Mini Project 3 adalah lanjutan dari Mini Project 2. Berikut ketentuan tugas dan letak penerapannya:
 
-### **1.2 Cara Menjalankan**
+| Ketentuan | Status | Letak penerapan |
+|---|---|---|
+| Polymorphism: **overriding** | ✅ | Subclass `Barang`, class View, dan semua controller (lihat [6.2](#62-polymorphism-overriding)) |
+| Polymorphism: **overloading** | ✅ | `BarangController.cariBarang(...)`, `BaseView.bacaAngka(...)`, `BaseView.bacaTeks(...)`, `EntitasView.tampilDaftar(...)` (lihat [6.3](#63-polymorphism-overloading)) |
+| Abstraction: **abstract class** | ✅ | `Barang`, `BaseView`, `EntitasView` (lihat [6.1](#61-abstraction)) |
+| Abstraction: **abstract method** | ✅ | `Barang.getJenis()`, `getLabelDetail()`, `getNilaiDetail()`; `EntitasView.namaEntitas()`, `tampilDetail()` |
+| Struktur proyek **MVC** | ✅ | Package `model`, `view`, `controller` (+ `main`) (lihat [BAB II](#bab-ii-struktur-package)) |
+| Nilai tambah: **Interface** | ✅ | `controller/Kelola.java` (lihat [BAB VII](#bab-vii-nilai-tambah)) |
+| Dokumentasi pada README.md | ✅ | Dokumen ini |
+
+### **1.3 Cara Menjalankan**
 
 1. Buka proyek melalui Apache NetBeans (proyek Maven).
 2. Jalankan class `SistemmanajemenCVMPK` pada package `main`.
 
-Atau lewat terminal (Maven):
+Atau lewat terminal:
 
 ```
 mvn compile exec:java
 ```
 
+> Pada `pom.xml`, `exec.mainClass` diatur ke `main.SistemmanajemenCVMPK`.
+
 ---
 
 ## **BAB II STRUKTUR PACKAGE**
 
-Program menerapkan struktur **MVC (Model-View-Controller)**.
+Program menerapkan struktur **MVC (Model-View-Controller)** dengan satu package tambahan `main` sebagai titik masuk aplikasi.
 
 ```
 sistemmanajemenCVMPK/
 ├── pom.xml
+├── README.md
 └── src/main/java/
     │
     ├── main/                              ← titik masuk aplikasi
     │   └── SistemmanajemenCVMPK.java
     │
-    ├── model/                             ← lapisan DATA & ATURAN BISNIS
+    ├── model/                             ← lapisan DATA & ATURAN DATA
     │   ├── Barang.java                    (abstract class)
     │   ├── BarangElektronik.java          (extends Barang)
     │   ├── BarangNonElektronik.java       (extends Barang)
@@ -79,12 +105,10 @@ sistemmanajemenCVMPK/
 
 | Package | Class | Tugas |
 |---|---|---|
-| `main` | `SistemmanajemenCVMPK` | Membuat `Scanner`, membuat `MenuController`, lalu menjalankan program. Tidak berisi logika lain. |
-| `model` | `Barang`, `BarangElektronik`, `BarangNonElektronik`, `Pemasok`, `Pengadaan` | Menyimpan data dan aturan data (misalnya stok tidak boleh minus). Model **tidak** mencetak apa pun ke layar. Jika data tidak valid, model melempar `IllegalArgumentException`. |
+| `main` | `SistemmanajemenCVMPK` | Membuat `Scanner`, membuat `MenuController`, lalu menjalankannya. Tidak berisi logika lain. |
+| `model` | `Barang`, `BarangElektronik`, `BarangNonElektronik`, `Pemasok`, `Pengadaan` | Menyimpan data dan menjaga aturan datanya (misalnya stok tidak boleh minus). Model **tidak** mencetak apa pun ke layar. Jika data tidak valid, model melempar `IllegalArgumentException`. |
 | `view` | `BaseView`, `EntitasView`, `BarangView`, `PemasokView`, `PengadaanView`, `MenuView` | Seluruh `Scanner` dan `System.out` ada di sini: menampilkan menu, membaca input beserta validasinya, dan mencetak data. View tidak menyimpan data. |
-| `controller` | `Kelola`, `MenuController`, `BarangController`, `PemasokController`, `PengadaanController` | Mengatur alur: meminta input ke View, membuat/mengubah objek Model, menyimpannya di `ArrayList`, lalu meminta View menampilkan hasilnya. |
-
-> Pada Mini Project 2, seluruh proses berada di class `Service`, `ServiceBarang`, `ServicePemasok`, dan `ServicePengadaan` yang sangat panjang karena input, validasi, dan proses data bercampur. Pada Mini Project 3 class tersebut dipecah menurut konteksnya (lihat **Bab VIII**).
+| `controller` | `Kelola`, `MenuController`, `BarangController`, `PemasokController`, `PengadaanController` | Mengatur alur: meminta input ke View, membuat atau mengubah objek Model, menyimpannya di `ArrayList`, lalu meminta View menampilkan hasilnya. |
 
 ---
 
@@ -102,7 +126,7 @@ flowchart TD
     D -->|3| G["PengadaanController.jalankanMenu()"]
     D -->|4| H(["Keluar"])
     D -->|lainnya| C
-    E --> I{"Sub-menu CRUD"}
+    E --> I{"Sub-menu"}
     F --> I
     G --> I
     I -->|Tambah / Tampilkan / Hapus / Update / Cari| J["Controller meminta input ke View<br/>→ membuat / mengubah objek Model<br/>→ View menampilkan hasil"]
@@ -117,7 +141,7 @@ Contoh alur pada saat **Tambah Barang**:
 1. `BarangController.tambah()` meminta input ID, nama, stok, dan jenis ke `BarangView`.
 2. `BarangView` membaca input dan memvalidasinya (kosong, bukan angka, kurang dari minimal) sampai valid.
 3. `BarangController` membuat objek `BarangElektronik` atau `BarangNonElektronik` (Model).
-4. Model memeriksa aturan datanya. Jika melanggar, Model melempar `IllegalArgumentException`.
+4. Model memeriksa aturan datanya. Jika dilanggar, Model melempar `IllegalArgumentException`.
 5. `BarangController` menyimpan objek ke `ArrayList<Barang>`, lalu meminta `BarangView` menampilkan pesan hasil.
 
 ### **3.3 Menu Utama**
@@ -157,7 +181,7 @@ Data barang terbagi menjadi dua jenis:
 - **Barang Elektronik**, memiliki atribut tambahan **garansi**.
 - **Barang Non-Elektronik**, memiliki atribut tambahan **kategori**.
 
-Saat fitur tampilkan dijalankan, data barang otomatis dikelompokkan berdasarkan jenisnya:
+Saat fitur **Tampilkan Barang** dijalankan, data otomatis dikelompokkan berdasarkan jenisnya:
 
 ```
 ====================================================================
@@ -170,6 +194,11 @@ ID Barang   : 1
 Nama        : Laptop ASUS
 Stok        : 10
 Garansi     : 2 Tahun
+--------------------------------------------------------------------
+ID Barang   : 3
+Nama        : Monitor LG
+Stok        : 8
+Garansi     : 1 Tahun
 
 |- BARANG NON-ELEKTRONIK
 --------------------------------------------------------------------
@@ -183,7 +212,32 @@ Kategori    : Perlengkapan Kantor
 ====================================================================
 ```
 
-Fitur **Cari Barang** dapat dilakukan berdasarkan **ID Barang** atau **Nama Barang** (kata kunci, tidak membedakan huruf besar/kecil).
+Fitur **Cari Barang** dapat dilakukan berdasarkan **ID Barang** atau **Nama Barang** (kata kunci, tidak membedakan huruf besar/kecil):
+
+```
+====================================================================
+                          CARI DATA BARANG                          
+====================================================================
+Cari berdasarkan:
+1. ID Barang
+2. Nama Barang
+Cara pencarian (1-2): 2
+Nama barang yang dicari: monitor
+====================================================================
+                          HASIL PENCARIAN                           
+====================================================================
+
+|- BARANG ELEKTRONIK
+--------------------------------------------------------------------
+ID Barang   : 3
+Nama        : Monitor LG
+Stok        : 8
+Garansi     : 1 Tahun
+--------------------------------------------------------------------
+====================================================================
+                      DATA SELESAI DITAMPILKAN                      
+====================================================================
+```
 
 ### **3.5 Kelola Data Pemasok**
 
@@ -213,9 +267,9 @@ Menu: Tambah, Tampilkan, Hapus, Update, Kembali. Data pengadaan terdiri dari ID,
                           DAFTAR PENGADAAN                          
 ====================================================================
 --------------------------------------------------------------------
-ID Pengadaan: 1
-Tanggal     : 18/09/2026
-Alamat      : Gudang CV MPK
+ID Pengadaan : 1
+Tanggal      : 18/09/2026
+Alamat       : Gudang CV MPK
 --------------------------------------------------------------------
 ====================================================================
                       DATA SELESAI DITAMPILKAN                      
@@ -224,7 +278,7 @@ Alamat      : Gudang CV MPK
 
 ### **3.7 Keluar**
 
-Jika pengguna memilih menu 4, program menampilkan pesan terima kasih lalu berhenti.
+Jika pengguna memilih menu 4 pada menu utama, program menampilkan pesan terima kasih lalu berhenti.
 
 ```
 ====================================================================
@@ -239,17 +293,49 @@ Jika pengguna memilih menu 4, program menampilkan pesan terima kasih lalu berhen
 Validasi dilakukan pada **dua lapis**:
 
 1. **View** (`BaseView`): memastikan input tidak kosong, berupa angka, dan memenuhi nilai minimal. Input diulang sampai valid.
-2. **Model**: menjaga aturan data. Jika dilanggar, model melempar `IllegalArgumentException` dan Controller menampilkan pesannya lewat View.
+2. **Model**: menjaga aturan data. Jika dilanggar, Model melempar `IllegalArgumentException` dan Controller menampilkan pesannya lewat View.
 
 | Data | Aturan |
 |---|---|
-| ID (barang, pemasok, pengadaan) | wajib diisi, harus angka, minimal 1, tidak boleh duplikat |
+| ID (barang, pemasok, pengadaan) | wajib diisi, harus angka, tidak boleh duplikat, ID pada update/hapus minimal 1 |
 | Nama, alamat, garansi, kategori | tidak boleh kosong |
 | Stok | harus angka, tidak boleh kurang dari 0 |
 | Jenis barang | hanya boleh 1 atau 2 |
 | No telepon | tidak boleh kosong, hanya angka |
-| Tanggal pengadaan | tidak boleh kosong, format `dd/MM/yyyy` dan tanggal harus nyata (31/02/2026 ditolak) |
+| Tanggal pengadaan | tidak boleh kosong, format `dd/MM/yyyy`, dan tanggalnya harus nyata (31/02/2026 ditolak) |
 | Menu | harus angka dan sesuai pilihan yang tersedia |
+
+Contoh hasil validasi saat **Tambah Barang** (input salah diulang sampai benar):
+
+```
+ID Barang (0 untuk kembali): abc
+>>>>>              ID Barang harus berupa angka!               <<<<<
+ID Barang (0 untuk kembali): -5
+>>>>>           ID Barang tidak boleh kurang dari 0!           <<<<<
+ID Barang (0 untuk kembali): 3
+Nama Barang: 
+>>>>>             Nama Barang tidak boleh kosong!              <<<<<
+Nama Barang: Monitor LG
+Stok Barang: x
+>>>>>             Stok Barang harus berupa angka!              <<<<<
+Stok Barang: -1
+>>>>>          Stok Barang tidak boleh kurang dari 0!          <<<<<
+Stok Barang: 8
+Jenis Barang:
+1. Barang Elektronik
+2. Barang Non-Elektronik
+Jenis barang (1-2): 9
+>>>>>        Jenis barang hanya boleh memilih 1 atau 2!        <<<<<
+Jenis barang (1-2): 1
+Garansi: 
+>>>>>               Garansi tidak boleh kosong!                <<<<<
+Garansi: 1 Tahun
+>>>>>            Barang baru berhasil ditambahkan!             <<<<<
+```
+
+(Setiap pesan pada contoh di atas tampil dalam kotak garis `====` pada program, diringkas di sini agar singkat.)
+
+Validasi lain: input menu yang bukan angka ditolak dengan pesan `Input harus berupa angka!`, dan angka di luar pilihan ditolak dengan `Pilihan tidak valid!`.
 
 ---
 
@@ -257,7 +343,7 @@ Validasi dilakukan pada **dua lapis**:
 
 ### **5.1 Encapsulation**
 
-Semua atribut pada class Model dibuat `private`, dan diakses melalui getter/setter. Setter juga berfungsi memvalidasi data sebelum disimpan.
+Semua atribut pada class Model dibuat `private` dan diakses melalui getter/setter. Setter juga berfungsi memvalidasi data sebelum disimpan.
 
 Contoh pada `model/Barang.java`:
 
@@ -283,9 +369,10 @@ public abstract class Barang {
 
 Poin penerapan encapsulation:
 
-- Atribut `private`, sehingga tidak bisa diubah langsung dari class lain.
+- Atribut `private`, sehingga tidak dapat diubah langsung dari class lain.
 - ID dibuat `final` dan tidak punya setter, karena ID tidak boleh berubah setelah objek dibuat.
-- Setter hanya disediakan jika memang dipakai (misalnya `setStok` untuk menu Update Stok, `setNama` / `setAlamat` / `setNoTelepon` pada `Pemasok` untuk menu Update).
+- Setter yang dibuka (`public`) hanya untuk data yang memang boleh diubah: `setStok` pada `Barang`, `setNama` / `setAlamat` / `setNoTelepon` pada `Pemasok`, dan `setTanggal` / `setAlamat` pada `Pengadaan`.
+- Setter `setNama` (pada `Barang`), `setGaransi`, dan `setKategori` dibuat `private` karena hanya dipakai saat objek dibuat.
 - Konsep yang sama diterapkan pada `Pemasok` dan `Pengadaan`.
 
 ### **5.2 Inheritance**
@@ -314,7 +401,7 @@ public class BarangElektronik extends Barang {
 ```
 
 - Atribut umum (`idBarang`, `nama`, `stok`) ditulis **sekali** di `Barang`.
-- Atribut khusus ditulis di subclass: `garansi` pada `BarangElektronik` dan `kategori` pada `BarangNonElektronik`.
+- Atribut khusus ada di subclass: `garansi` pada `BarangElektronik` dan `kategori` pada `BarangNonElektronik`.
 - Subclass memakai `super(...)` untuk menjalankan constructor milik `Barang`.
 
 Inheritance juga dipakai pada package view:
@@ -338,7 +425,7 @@ BaseView (abstract)
 
 | Abstract class | Lokasi | Fungsi |
 |---|---|---|
-| `Barang` | `model/Barang.java` | Kerangka umum barang. Tidak bisa dibuat langsung (`new Barang(...)` error), harus berupa elektronik atau non-elektronik. |
+| `Barang` | `model/Barang.java` | Kerangka umum barang. Tidak bisa dibuat langsung (`new Barang(...)` akan error), harus berupa barang elektronik atau non-elektronik. |
 | `BaseView` | `view/BaseView.java` | Kerangka semua View: garis, judul, pesan, dan pembacaan input beserta validasinya. |
 | `EntitasView<T>` | `view/EntitasView.java` | Kerangka View untuk satu jenis data: menu, input ID, dan daftar data. |
 
@@ -394,15 +481,15 @@ public String getNilaiDetail() { return getKategori(); }
 | `BarangView` | `labelUpdate()` | Mengubah teks menu menjadi "Update Stok" |
 | `BarangView` | `daftarMenu()` | Menambah menu "Cari Barang" |
 | `BarangView` | `tampilDaftar(List, String)` | Daftar barang dikelompokkan per jenis |
-| Semua controller | `jalankanMenu()`, `tambah()`, `tampilkan()`, `hapus()`, `update()` | Mengisi kontrak interface `Kelola` |
+| `BarangController`, `PemasokController`, `PengadaanController` | `jalankanMenu()`, `tambah()`, `tampilkan()`, `hapus()`, `update()` | Mengisi kontrak interface `Kelola` |
 
 **Dynamic polymorphism**: `ArrayList<Barang>` dapat menampung `BarangElektronik` maupun `BarangNonElektronik`. Saat ditampilkan, `BarangView` cukup memanggil method milik `Barang`, dan hasilnya otomatis menyesuaikan jenis objeknya:
 
 ```java
 // BarangView.tampilDetail()
 System.out.printf("%-12s: %s%n", barang.getLabelDetail(), barang.getNilaiDetail());
-// elektronik     → "Garansi     : 2 Tahun"
-// non-elektronik → "Kategori    : Perlengkapan Kantor"
+// objek BarangElektronik     → "Garansi     : 2 Tahun"
+// objek BarangNonElektronik  → "Kategori    : Perlengkapan Kantor"
 ```
 
 ### **6.3 Polymorphism: Overloading**
@@ -476,12 +563,7 @@ case 2 -> kelolaPemasok.jalankanMenu();
 case 3 -> kelolaPengadaan.jalankanMenu();
 ```
 
-Dengan cara ini, seluruh controller memiliki nama method yang seragam, dan controller baru (misalnya untuk data pelanggan) dapat ditambahkan tanpa mengubah cara `MenuController` memanggilnya.
-
-### **7.3 Nilai Tambah Lainnya**
-
-- Struktur proyek **MVC** diterapkan penuh (Bab II), termasuk pemisahan tegas antara model, view, dan controller.
-- Fitur **Cari Barang** (berdasarkan ID atau nama).
+Dengan cara ini seluruh controller memiliki nama method yang seragam, dan controller baru (misalnya untuk data pelanggan) dapat ditambahkan tanpa mengubah cara `MenuController` memanggilnya.
 
 ---
 
@@ -489,9 +571,9 @@ Dengan cara ini, seluruh controller memiliki nama method yang seragam, dan contr
 
 | Evaluasi | Perbaikan |
 |---|---|
-| Validasi input sudah bagus | Seluruh aturan validasi dipertahankan dan dipusatkan di `BaseView` agar tidak ditulis berulang. |
-| `Service.java` sudah bagus tetapi terlalu panjang, sebaiknya dipisah sesuai konteks | `Service`, `ServiceBarang`, `ServicePemasok`, dan `ServicePengadaan` dipecah menjadi `MenuController`, `BarangController`, `PemasokController`, `PengadaanController` (alur) dan `MenuView`, `BarangView`, `PemasokView`, `PengadaanView` (input/output) beserta `BaseView` dan `EntitasView` untuk kode bersama. Controller menjadi sekitar 100 sampai 150 baris. |
-| Dead code pada getter `getGaransi` dan `getKategori` | Kedua getter kini dipakai oleh `getNilaiDetail()` pada masing-masing subclass, lalu ditampilkan oleh `BarangView`. Setter dan getter lain yang tidak dipakai juga dihapus (misalnya `setIdBarang`). |
+| Validasi input sudah bagus | Seluruh aturan validasi dipertahankan dan dipusatkan di `BaseView` serta class Model, sehingga tidak ditulis berulang. |
+| `Service.java` sudah bagus tetapi terlalu panjang, sebaiknya dipisah sesuai konteks | `Service`, `ServiceBarang`, `ServicePemasok`, dan `ServicePengadaan` dipecah menjadi `MenuController`, `BarangController`, `PemasokController`, `PengadaanController` (alur) dan `MenuView`, `BarangView`, `PemasokView`, `PengadaanView` (input/output), ditambah `BaseView` dan `EntitasView` untuk kode bersama. Ukuran tiap controller kini sekitar 110 sampai 160 baris. |
+| Dead code pada getter `getGaransi` dan `getKategori` | Kedua getter kini dipakai oleh `getNilaiDetail()` pada masing-masing subclass, lalu ditampilkan oleh `BarangView`. Setter dan getter lain yang tidak terpakai juga dihapus (misalnya `setIdBarang`). |
 
 ---
 
