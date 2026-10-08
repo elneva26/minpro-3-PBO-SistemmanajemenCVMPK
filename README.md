@@ -140,7 +140,7 @@ Contoh alur pada saat **Tambah Barang**:
 
 ### **3.3 Menu Utama**
 
-Saat program dijalankan, pengguna mendapat menu utama:
+Saat program dijalankan, sistem akan menampilkan menu utama:
 
 ```
 ====================================================================
@@ -202,7 +202,7 @@ Kategori    : Perlengkapan Kantor
 ====================================================================
 ```
 
-Fitur **Cari Barang** dapat dilakukan berdasarkan **ID Barang** atau **Nama Barang** (kata kunci, tidak membedakan huruf besar/kecil):
+Fitur **Cari Barang** dapat dilakukan berdasarkan **ID Barang** atau **Nama Barang**, setelah pengguna selesai menginput data yang ingin dicari, maka program akan langsung menampilkan data nya:
 
 ```
 ====================================================================
@@ -231,7 +231,25 @@ Garansi     : 1 Tahun
 
 ### **3.5 Kelola Data Pemasok**
 
-Menu: Tambah, Tampilkan, Hapus, Update, Kembali. Data pemasok terdiri dari ID, nama, alamat, dan nomor telepon (hanya angka).
+Di dalam menu kelola data pemasok terdapat beberapa opsi yang diberikan, yaitu tambah, tampilkan, hapus, update, dan kembali. Data pemasok terdiri dari ID, nama, alamat, dan nomor telepon (hanya angka) jika pengguna menginput selain angka, maka program akan langsung menampilkan pesan bahwa data yang di input oleh pengguna tidak sesuai. Setelah itu. pengguna akan diminta untuk menginput ulang data nya.
+
+```
+====================================================================
+                           TAMBAH DATA PEMASOK                          
+====================================================================
+--------------------------------------------------------------------
+ID Pemasok (0 untuk kembali) : 3
+Nama Pemasok : PT Huawei co.id
+Alamat Pemasok  : China
+No Telepon  : +86 138 0013 8000
+--------------------------------------------------------------------
+====================================================================
+ >>>>>                 No Telepon harus berupa angka!          <<<<<            
+====================================================================
+```
+
+
+
 
 ```
 ====================================================================
@@ -250,7 +268,8 @@ No Telepon  : 081234567890
 
 ### **3.6 Kelola Data Pengadaan**
 
-Menu: Tambah, Tampilkan, Hapus, Update, Kembali. Data pengadaan terdiri dari ID, tanggal (format `dd/MM/yyyy`), dan alamat.
+Di dalam menu kelola data pengadaan terdapat beberapa opsi yang diberikan, yaitu tambah, tampilkan, hapus, update, dan kembali. Data pengadaan terdiri dari ID, tanggal (format `dd/MM/yyyy`), dan alamat. jika pengguna menginput tanggal lalu formatnya tidak sesuai, maka program akan langsung menampilkan pesan bahwa data yang di input oleh pengguna tidak sesuai. Setelah itu, pengguna akan diminta untuk menginput ulang data nya.
+
 
 ```
 ====================================================================
