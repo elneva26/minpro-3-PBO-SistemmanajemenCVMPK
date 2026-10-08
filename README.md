@@ -280,11 +280,13 @@ Validasi lain: input menu yang bukan angka ditolak dengan pesan "Input harus ber
 
 ### **5.1 Encapsulation**
 
-Semua atribut pada class Model dibuat `private` dan diakses melalui getter/setter. Setter juga berfungsi memvalidasi data sebelum disimpan.
+Semua atribut pada class Model dibuat "private" dan diakses melalui getter/setter. Setter juga berfungsi memvalidasi data sebelum disimpan.
 
-Contoh pada `model/Barang.java`:
+Contoh pada "model/Barang.java":
 
-<img width="975" height="412" alt="image" src="https://github.com/user-attachments/assets/53d67193-29c1-4b1f-a524-677b6ac9df44" />
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/53d67193-29c1-4b1f-a524-677b6ac9df44" />
+
+<img width="975" height="678" alt="image" src="https://github.com/user-attachments/assets/869ca4f8-16d5-4677-8b82-c965bfac6956" />
 
        
 Poin penerapan encapsulation:
@@ -297,7 +299,7 @@ Poin penerapan encapsulation:
 
 ### **5.2 Inheritance**
 
-`Barang` adalah superclass, sedangkan `BarangElektronik` dan `BarangNonElektronik` adalah subclass.
+**Barang** adalah superclass, sedangkan **BarangElektronik** dan **BarangNonElektronik** adalah subclass.
 
 ```
               Barang (abstract)
@@ -307,18 +309,18 @@ Poin penerapan encapsulation:
 BarangElektronik    BarangNonElektronik
 ```
 
-```java
-public class BarangElektronik extends Barang {
+- Barang Elektronik
+- Barang Non Elektronik
 
-    private String garansi;
+Class BarangElektronik mewarisi class Barang menggunakan public class BarangElektronik extends Barang;
 
-    public BarangElektronik(int idBarang, String nama, int stok, String garansi) {
-        super(idBarang, nama, stok);   // memanggil constructor superclass
-        setGaransi(garansi);
-    }
-    ...
-}
-```
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/a9e7b2a6-3549-451d-8880-f5be65b3ec16" />
+
+Sedangkan class BarangNonElektronik menggunakan public class BarangNonElektronik extends Barang;
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/b0aecf41-602d-4e58-86f9-94daac93dd93" />
+
+
 
 - Atribut umum (`idBarang`, `nama`, `stok`) ditulis **sekali** di `Barang`.
 - Atribut khusus ada di subclass: `garansi` pada `BarangElektronik` dan `kategori` pada `BarangNonElektronik`.
