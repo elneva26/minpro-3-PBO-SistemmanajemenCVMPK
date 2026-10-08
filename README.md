@@ -513,13 +513,18 @@ Dengan cara ini seluruh controller memiliki nama method yang seragam, dan contro
 
 ---
 
+## **BAB IX STRUKTUR MVC**
+
+Program menerapkan struktur MVC (Model-View-Controller) dengan membagi class ke dalam beberapa package.
+
+Struktur package program, yaitu;
+
 ## **BAB IX KESIMPULAN**
 
-Program Sistem Manajemen CV Mandiri Prima Kreatif adalah aplikasi Java yang mengelola data barang, pemasok, dan pengadaan. Pada Mini Project 3, program dikembangkan dengan:
+Program Sistem Manajemen CV Mandiri Prima Kreatif merupakan aplikasi berbasis Java yang digunakan untuk mengelola data barang, pemasok, dan pengadaan. Pada pengembangannya, program menerapkan berbagai konsep Pemrograman Berorientasi Objek (PBO), seperti access modifier, encapsulation, inheritance, abstraction, polymorphism, serta penggunaan ArrayList untuk menyimpan data selama program berjalan.
 
-- **Abstraction**: `Barang` sebagai abstract class dengan abstract method, serta `BaseView` dan `EntitasView` sebagai kerangka View.
-- **Polymorphism**: overriding pada subclass `Barang`, View, dan controller; overloading pada pencarian barang, pembacaan input, dan penampilan daftar.
-- **MVC**: pemisahan package `model`, `view`, dan `controller` dengan `main` sebagai titik masuk.
-- **Interface** (nilai tambah): `Kelola` sebagai kontrak seluruh controller data.
+Konsep abstraction diterapkan melalui Barang sebagai abstract class yang memiliki abstract method dan kemudian diimplementasikan oleh BarangElektronik dan BarangNonElektronik. Konsep inheritance diterapkan melalui hubungan antara superclass dan subclass tersebut, serta pada struktur View melalui BaseView dan EntitasView. Sementara itu, polymorphism diterapkan melalui overriding method pada subclass dan View, serta overloading pada beberapa method seperti pencarian barang dan pembacaan input. Program juga menerapkan keyword super untuk memanggil constructor superclass dan final untuk menjaga atribut maupun method tertentu agar tidak dapat diubah atau dioverride.
 
-Dengan penerapan tersebut, program menjadi lebih terstruktur, tidak ada kode yang berulang, dan lebih mudah dikembangkan.
+Selain itu, program menggunakan pola Model-View-Controller (MVC) dengan memisahkan bagian model, view, dan controller, sehingga pengelolaan data, proses program, dan interaksi dengan pengguna menjadi lebih terorganisasi. Sebagai nilai tambah, program juga menggunakan interface Kelola sebagai kontrak yang diterapkan oleh controller untuk operasi pengelolaan data.
+
+Program dilengkapi dengan exception handling dan validasi input untuk menangani berbagai kesalahan, seperti input bukan angka, input kosong, ID yang tidak valid atau sudah digunakan, stok negatif, nomor telepon yang tidak sesuai, serta tanggal yang tidak valid. Dengan penerapan berbagai konsep tersebut, program menjadi lebih terstruktur, mudah dipahami, memiliki pembagian tanggung jawab yang jelas, mengurangi pengulangan kode, dan lebih mudah dikembangkan. Program ini menunjukkan penerapan konsep-konsep PBO yang telah dipelajari dalam bentuk aplikasi yang dapat digunakan untuk mengelola data secara terorganisasi.
