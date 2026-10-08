@@ -486,24 +486,19 @@ Contoh pemakaian overloading `cariBarang` pada `BarangController`:
 
 Interface `Kelola` adalah kontrak yang wajib dipenuhi setiap controller data:
 
-```java
-public interface Kelola {
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/c2307470-3238-4a4e-b44e-9f990a17d2e7" />
 
-    void jalankanMenu();
-    void tambah();
-    void tampilkan();
-    void hapus();
-    void update();
-}
-```
 
 Setiap controller menyetujui kontrak tersebut dengan `implements` dan wajib mengisi seluruh method-nya:
 
-```java
-public class BarangController implements Kelola { ... }
-public class PemasokController implements Kelola { ... }
-public class PengadaanController implements Kelola { ... }
-```
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/44f18901-62bb-4658-b1e9-53f678be5981" />
+
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/1614c37a-e7f3-4a81-b30c-a86bdb6808a3" />
+
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/a239e91b-6f05-40c5-9b3a-8641efbf0243" />
+
 
 `MenuController` hanya mengenal kontraknya (apa yang dikerjakan), bukan cara tiap controller mengerjakannya:
 
