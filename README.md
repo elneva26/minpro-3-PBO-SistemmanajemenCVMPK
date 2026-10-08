@@ -257,35 +257,10 @@ Validasi dilakukan pada **dua lapis**:
 
 Contoh hasil validasi saat **Tambah Barang** (input salah diulang sampai benar):
 
-```
-ID Barang (0 untuk kembali): abc
->>>>>              ID Barang harus berupa angka!               <<<<<
-ID Barang (0 untuk kembali): -5
->>>>>           ID Barang tidak boleh kurang dari 0!           <<<<<
-ID Barang (0 untuk kembali): 3
-Nama Barang: 
->>>>>             Nama Barang tidak boleh kosong!              <<<<<
-Nama Barang: Monitor LG
-Stok Barang: x
->>>>>             Stok Barang harus berupa angka!              <<<<<
-Stok Barang: -1
->>>>>          Stok Barang tidak boleh kurang dari 0!          <<<<<
-Stok Barang: 8
-Jenis Barang:
-1. Barang Elektronik
-2. Barang Non-Elektronik
-Jenis barang (1-2): 9
->>>>>        Jenis barang hanya boleh memilih 1 atau 2!        <<<<<
-Jenis barang (1-2): 1
-Garansi: 
->>>>>               Garansi tidak boleh kosong!                <<<<<
-Garansi: 1 Tahun
->>>>>            Barang baru berhasil ditambahkan!             <<<<<
-```
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/8a75e6b7-6ff8-4e75-90e5-662daeb1ecb9" />
 
-(Setiap pesan pada contoh di atas tampil dalam kotak garis `====` pada program, diringkas di sini agar singkat.)
 
-Validasi lain: input menu yang bukan angka ditolak dengan pesan `Input harus berupa angka!`, dan angka di luar pilihan ditolak dengan `Pilihan tidak valid!`.
+Validasi lain: input menu yang bukan angka ditolak dengan pesan "Input harus berupa angka!", dan angka di luar pilihan ditolak dengan "Pilihan tidak valid!".
 
 ---
 
