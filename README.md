@@ -34,7 +34,7 @@ Kelas : **Sistem Informasi A'25**
 
 Sistem Manajemen CV Mandiri Prima Kreatif adalah program berbasis Java untuk membantu mengelola data pada CV Mandiri Prima Kreatif yang bergerak di bidang elektronik dan pengadaan barang.
 
-Program mengelola tiga jenis data, yaitu **data barang**, **data pemasok**, dan **data pengadaan**, dengan konsep CRUD (Create, Read, Update, Delete). Khusus data barang, tersedia fitur tambahan **Cari Barang** (berdasarkan ID atau nama). Data disimpan sementara di dalam `ArrayList` selama program berjalan, dan sudah tersedia data awal (dummy data) pada tiap controller.
+Program mengelola tiga jenis data, yaitu **data barang**, **data pemasok**, dan **data pengadaan**, dengan konsep CRUD (Create, Read, Update, Delete). Khusus data barang, tersedia fitur tambahan **Cari Barang** (berdasarkan ID atau nama). Data disimpan sementara di dalam "ArrayList" selama program berjalan, dan sudah tersedia data awal (dummy data) pada tiap controller.
 
 ### **1.2 Tujuan**
 
@@ -188,11 +188,7 @@ ID Barang   : 1
 Nama        : Laptop ASUS
 Stok        : 10
 Garansi     : 2 Tahun
---------------------------------------------------------------------
-ID Barang   : 3
-Nama        : Monitor LG
-Stok        : 8
-Garansi     : 1 Tahun
+
 
 |- BARANG NON-ELEKTRONIK
 --------------------------------------------------------------------
