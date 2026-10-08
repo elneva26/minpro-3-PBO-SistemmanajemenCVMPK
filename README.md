@@ -381,7 +381,7 @@ BaseView (abstract)
 
 
 
-## **BAB VI DUMMMY DATA PADA ARRAYLIST**
+## **BAB VI DUMMY DATA PADA ARRAYLIST**
 
 Program menyediakan dummy data awal di dalam ArrayList sehingga data sudah tersedia ketika fitur tampilkan data dijalankan.
 
