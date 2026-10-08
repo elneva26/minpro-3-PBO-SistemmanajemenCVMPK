@@ -361,17 +361,27 @@ Terdapat beberapa ArrayList yaitu;
 
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/627bc9b6-d223-43b7-8ae7-9695511fc2e1" />
 
+---------------------------
+
 
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/8e8e7e47-4ad4-459e-b978-ff4e80e16b09" />
+
+--------------------------
 
 
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/c5944366-741a-4fb2-aad4-1512abc19043" />
 
+--------------------------
+
 
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/5d3c97d4-7d5f-44e7-bc97-781858e9ac03" />
 
+--------------------------
+
 
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/05cabd8c-01d1-4dab-ac18-3a710c9e2218" />
+
+--------------------------
 
 
 Program kemudian memasukkan dummy data awal berupa;
@@ -389,9 +399,9 @@ Program kemudian memasukkan dummy data awal berupa;
 Dengan adanya dummy data tersebut, pengguna tidak perlu melakukan input terlebih dahulu untuk melihat data pada fitur read ataupun tampilkan Data.
 
 
-## **BAB VI POLYMORPHISM DAN ABSTRACTION**
+## **BAB VII POLYMORPHISM DAN ABSTRACTION**
 
-### **6.1 Abstraction**
+### **7.1 Abstraction**
 
 #### Abstract class
 
