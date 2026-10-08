@@ -252,7 +252,7 @@ Validasi dilakukan pada **dua lapis**:
 | Stok | harus angka, tidak boleh kurang dari 0 |
 | Jenis barang | hanya boleh 1 atau 2 |
 | No telepon | tidak boleh kosong, hanya angka |
-| Tanggal pengadaan | tidak boleh kosong, format `dd/MM/yyyy`, dan tanggalnya harus nyata (31/02/2026 ditolak) |
+| Tanggal pengadaan | tidak boleh kosong, format `dd/MM/yyyy`, dan tanggalnya harus valid (31/02/2026 akan ditolak) |
 | Menu | harus angka dan sesuai pilihan yang tersedia |
 
 Contoh hasil validasi saat **Tambah Barang** (input salah diulang sampai benar):
