@@ -77,7 +77,35 @@ Dalam setiap proses, pembagian tugas mengikuti pola MVC, yaitu controller memint
 
 Program menerapkan struktur **MVC (Model-View-Controller)** dengan satu package tambahan yaitu "main" sebagai jalan masuk ke dalam program.
 
+Dengan pembagian tersebut, program menerapkan pola Model-View-Controller (MVC), yaitu Model bertanggung jawab terhadap data dan aturan data, View menangani tampilan serta input pengguna, sedangkan Controller mengatur alur dan proses program. Package main berfungsi sebagai titik awal untuk menjalankan aplikasi. Pembagian ini membuat struktur program lebih terorganisasi, mudah dipahami, dan memudahkan pengembangan maupun pemeliharaan program.  
+
+
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/8dcb6403-55bf-48a9-9dda-7081769e01b8" />
+
+-> Package Model
+
+Berisi class yang merepresentasikan data atau objek yang digunakan dalam program. Class yang terdapat pada package ini adalah Barang, BarangElektronik, BarangNonElektronik, Pemasok, dan Pengadaan.
+
+
+Class Barang berperan sebagai abstract class yang menjadi dasar bagi BarangElektronik dan BarangNonElektronik. Sementara itu, Pemasok dan Pengadaan digunakan untuk merepresentasikan data pemasok dan pengadaan.
+
+-> Package View
+
+Berisi class yang bertanggung jawab terhadap tampilan dan interaksi dengan pengguna. Class yang terdapat pada package ini adalah BaseView, EntitasView, BarangView, PemasokView, PengadaanView, dan MenuView.
+
+
+BaseView menyediakan fungsi umum seperti menampilkan judul, garis, pesan, serta membaca input pengguna. EntitasView menjadi kerangka umum untuk tampilan data. Selanjutnya, BarangView, PemasokView, dan PengadaanView menangani tampilan dan input yang lebih spesifik sesuai dengan masing-masing data. MenuView digunakan untuk menampilkan menu utama program.
+
+-> Package Controller
+
+Berisi class yang bertanggung jawab untuk mengatur proses dan alur pengelolaan data. Class yang terdapat pada package ini adalah MenuController, BarangController, PemasokController, PengadaanController, dan Kelola.
+
+
+MenuController mengatur menu utama dan mengarahkan pengguna ke proses pengelolaan data yang dipilih. BarangController, PemasokController, dan PengadaanController menangani proses seperti menambahkan, menampilkan, menghapus, dan mengubah data. Sementara itu, Kelola merupakan interface yang menjadi kontrak bagi controller dalam menjalankan operasi pengelolaan data.
+
+-> Package Main
+
+Berisi class SistemmanajemenCVMPK yang merupakan titik awal (entry point) program. Class ini menjalankan method main(), membuat objek Scanner, kemudian menjalankan MenuController untuk memulai sistem.
 
 
 ### Penjelasan tiap package
