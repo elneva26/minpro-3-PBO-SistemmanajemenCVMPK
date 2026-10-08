@@ -434,7 +434,7 @@ dan pada `BarangNonElektronik`:
 
 
 
-### **6.2 Polymorphism: Overriding**
+### **7.2 Polymorphism: Overriding**
 
 | Lokasi | Method yang di-override | Keterangan |
 |---|---|---|
@@ -447,14 +447,10 @@ dan pada `BarangNonElektronik`:
 
 **Dynamic polymorphism**: `ArrayList<Barang>` dapat menampung `BarangElektronik` maupun `BarangNonElektronik`. Saat ditampilkan, `BarangView` cukup memanggil method milik `Barang`, dan hasilnya otomatis menyesuaikan jenis objeknya:
 
-```java
-// BarangView.tampilDetail()
-System.out.printf("%-12s: %s%n", barang.getLabelDetail(), barang.getNilaiDetail());
-// objek BarangElektronik     → "Garansi     : 2 Tahun"
-// objek BarangNonElektronik  → "Kategori    : Perlengkapan Kantor"
-```
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/4d4e63aa-e26e-4aad-be4c-8a125652c553" />
 
-### **6.3 Polymorphism: Overloading**
+
+### **7.3 Polymorphism: Overloading**
 
 | Lokasi | Method | Perbedaan parameter |
 |---|---|---|
@@ -469,16 +465,12 @@ System.out.printf("%-12s: %s%n", barang.getLabelDetail(), barang.getNilaiDetail(
 
 Contoh pemakaian overloading `cariBarang` pada `BarangController`:
 
-```java
-Barang barang = cariBarang(view.inputId());           // parameter int
-List<Barang> hasil = cariBarang(view.inputKeyword()); // parameter String
-```
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/e4809921-a70a-416e-86c8-6e7ea66ee584" />
+
 
 ---
 
-## **BAB VII NILAI TAMBAH**
-
-Nilai tambah yang diterapkan pada proyek ini adalah **Interface**.
+## **BAB VIII INTERFACE**
 
 ### **7.1 Letak Penerapan Interface**
 
