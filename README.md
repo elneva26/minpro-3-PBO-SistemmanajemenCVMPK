@@ -21,9 +21,9 @@ Kelas : **Sistem Informasi A'25**
 - [BAB III Alur Program](#bab-iii-alur-program)
 - [BAB IV Validasi Input](#bab-iv-validasi-input)
 - [BAB V Encapsulation dan Inheritance](#bab-v-encapsulation-dan-inheritance)
-- [BAB VI Polymorphism dan Abstraction](#bab-vi-polymorphism-dan-abstraction)
-- [BAB VII Nilai Tambah](#bab-vii-nilai-tambah)
-- [BAB VIII Perbaikan dari Evaluasi Asisten Lab](#bab-viii-perbaikan-dari-evaluasi-asisten-lab)
+- [BAB VI Dummy data pada arrayList](#bab-vi-dummy-data-pada-arrayList)
+- [BAB VII Polymorphism dan Abstraction](#bab-vii-polymorphism-dan-abstraction)
+- [BAB VIII Interface](#bab-viii-interface)
 - [BAB IX Kesimpulan](#bab-ix-kesimpulan)
 
 ---
@@ -470,9 +470,9 @@ Contoh pemakaian overloading `cariBarang` pada `BarangController`:
 
 ---
 
-## **BAB VII INTERFACE**
+## **BAB VIII INTERFACE**
 
-### **7.1 Letak Penerapan Interface**
+### **8.1 Letak Penerapan Interface**
 
 | Berkas | Peran |
 |---|---|
@@ -482,7 +482,7 @@ Contoh pemakaian overloading `cariBarang` pada `BarangController`:
 | `controller/PengadaanController.java` | `implements Kelola` |
 | `controller/MenuController.java` | Memakai tipe `Kelola` untuk memanggil ketiga controller |
 
-### **7.2 Penjelasan**
+### **8.2 Penjelasan**
 
 Interface `Kelola` adalah kontrak yang wajib dipenuhi setiap controller data:
 
@@ -513,7 +513,7 @@ Dengan cara ini seluruh controller memiliki nama method yang seragam, dan contro
 
 ---
 
-## **BAB VIII KESIMPULAN**
+## **BAB IX KESIMPULAN**
 
 Program Sistem Manajemen CV Mandiri Prima Kreatif adalah aplikasi Java yang mengelola data barang, pemasok, dan pengadaan. Pada Mini Project 3, program dikembangkan dengan:
 
