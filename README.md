@@ -46,16 +46,23 @@ Sistem Manajemen CV Mandiri Prima Kreatif dirancang dengan tujuan sebagai beriku
 - Memastikan data yang dimasukkan sesuai melalui proses validasi input.
 
 ### **1.3 Alur Singkat**
+Alur program dimulai dengan menampilkan menu utama Sistem Manajemen CV Mandiri Prima Kreatif, yaitu kelola data barang, kelola data pemasok, kelola data pengadaan, dan keluar. Menu utama diatur oleh MenuController, dimana menu tersebut meneruskan pilihan pengguna ke controller data yang sesuai. Menu utama akan terus ditampilkan sampai pengguna memilih menu keluar. Setiap menu kelola data memiliki sub-menu sendiri yang juga berulang sampai pengguna memilih kembali.
 
-Alur program dimulai dengan menampilkan menu utama sistem manajemen CV Mandiri Prima Kreatif dimana pengguna dapat memilih menu sesuai kebutuhan, seperti mengelola data barang, mengelola data pemasok, mengelola data pengadaan, ataupun keluar dari program.
+-> Pada menu kelola data barang, pengguna dapat memilih menu tambah, tampilkan, hapus, update stok, cari barang dan kembali. 
 
-Pada menu kelola data barang, pengguna dapat menambahkan data barang dengan memasukkan ID barang, nama barang, dan stok, selanjutnya pengguna kemudian dapat memilih jenis barang, yaitu Barang Elektronik atau Barang Non-Elektronik. Barang elektronik memiliki data tambahan berupa garansi, sedangkan barang non-elektronik memiliki data tambahan berupa kategori.
+- Saat menambahkan barang, pengguna memasukkan ID barang, nama barang, dan stok, lalu memilih jenis barang, yaitu Barang Elektronik atau Barang Non-Elektronik.
+- Barang elektronik memiliki data tambahan berupa garansi, sedangkan barang non-elektronik memiliki data tambahan berupa kategori.
+- Lalu ID barang tidak boleh sama dengan ID yang sudah ada, dan pengguna dapat membatalkan penambahan dengan memasukkan angka 0 pada ID.
+- Data barang yang ditampilkan dikelompokkan otomatis berdasarkan jenisnya.
+- Pengguna juga dapat menghapus barang berdasarkan ID, memperbarui stok barang, serta mencari barang berdasarkan ID atau berdasarkan nama.
 
-Pada menu kelola data pemasok, pengguna dapat menambahkan data pemasok dengan memasukkan ID pemasok, nama pemasok, alamat, dan nomor telepon. Data pemasok yang telah tersimpan dapat ditampilkan, diperbarui, maupun dihapus.
+Pada menu kelola data pemasok, pengguna dapat menambahkan data pemasok dengan memasukkan ID pemasok, nama pemasok, alamat, dan nomor telepon yang hanya boleh berisi angka. Data pemasok yang telah tersimpan dapat ditampilkan, dihapus berdasarkan ID, serta diperbarui (nama, alamat, dan nomor telepon).
 
-Pada menu kelola data pengadaan, pengguna dapat menambahkan data pengadaan dengan memasukkan ID pengadaan, tanggal pengadaan, dan alamat pengadaan. Data pengadaan yang telah tersimpan juga dapat ditampilkan, diperbarui, maupun dihapus.
+Pada menu kelola data pengadaan, pengguna dapat menambahkan data pengadaan dengan memasukkan ID pengadaan, tanggal pengadaan dengan format dd/MM/yyyy, dan alamat pengadaan. Data pengadaan yang telah tersimpan dapat ditampilkan, dihapus berdasarkan ID, serta diperbarui (tanggal dan alamat).
 
-Setiap proses input dilengkapi dengan validasi untuk memastikan data yang dimasukkan tidak kosong dan sesuai dengan tipe data yang ditentukan dan program ini akan terus menampilkan menu utama sampai pengguna memilih menu keluar.
+Setiap proses input dilengkapi dengan validasi pada dua lapis. Lapis pertama ada di View, yang memastikan input tidak kosong, berupa angka jika yang diminta angka, dan memenuhi nilai minimal; input yang salah diminta ulang sampai benar. Lapis kedua ada di Model, yang menjaga aturan data seperti stok tidak boleh kurang dari 0, nomor telepon hanya angka, dan tanggal harus nyata. Jika aturan dilanggar, Model melempar IllegalArgumentException dan Controller menampilkan pesannya melalui View.
+
+Dalam setiap proses, pembagian tugas mengikuti pola MVC: Controller meminta input kepada View, membuat atau mengubah objek Model, menyimpannya ke dalam ArrayList, lalu meminta View menampilkan hasilnya kepada pengguna.
 
 --------------
 
