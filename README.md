@@ -332,7 +332,7 @@ Kemudian masing-masing subclass memiliki atribut khusus, yaitu;
 
 - BarangNonElektronik memiliki atribut kategori
 
-<img width="975" height="290" alt="image" src="https://github.com/user-attachments/assets/683c7375-ba97-4a33-889a-3f44d7104281" />
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/683c7375-ba97-4a33-889a-3f44d7104281" />
 
 - Atribut umum ("idBarang", "nama", "stok") ditulis **sekali** di "Barang".
 - Atribut khusus ada di subclass: "garansi" pada "BarangElektronik" dan "kategori" pada "BarangNonElektronik".
@@ -350,6 +350,44 @@ BaseView (abstract)
 ```
 
 ---
+
+
+
+## **BAB VI DUMMMY DATA PADA ARRAYLIST**
+
+Program menyediakan dummy data awal di dalam ArrayList sehingga data sudah tersedia ketika fitur tampilkan data dijalankan.
+
+Terdapat beberapa ArrayList yaitu;
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/627bc9b6-d223-43b7-8ae7-9695511fc2e1" />
+
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/8e8e7e47-4ad4-459e-b978-ff4e80e16b09" />
+
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/c5944366-741a-4fb2-aad4-1512abc19043" />
+
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/5d3c97d4-7d5f-44e7-bc97-781858e9ac03" />
+
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/05cabd8c-01d1-4dab-ac18-3a710c9e2218" />
+
+
+Program kemudian memasukkan dummy data awal berupa;
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/fb424d10-0fcd-4665-9bd9-d14b5773a03c" />
+
+----------------------------------
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/95f8b78d-dadb-4336-bee0-5421a8900150" />
+
+----------------------------------
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/aced3ca2-47c8-48ab-a85c-597c761b275f" />
+
+Dengan adanya dummy data tersebut, pengguna tidak perlu melakukan input terlebih dahulu untuk melihat data pada fitur read ataupun tampilkan Data.
+
 
 ## **BAB VI POLYMORPHISM DAN ABSTRACTION**
 
