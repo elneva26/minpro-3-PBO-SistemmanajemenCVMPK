@@ -77,37 +77,8 @@ Dalam setiap proses, pembagian tugas mengikuti pola MVC, yaitu controller memint
 
 Program menerapkan struktur **MVC (Model-View-Controller)** dengan satu package tambahan yaitu "main" sebagai jalan masuk ke dalam program.
 
-```
-sistemmanajemenCVMPK/
-├── pom.xml
-├── README.md
-└── src/main/java/
-    │
-    ├── main/                              ← jalan masuk program
-    │   └── SistemmanajemenCVMPK.java
-    │
-    ├── model/                             ← lapisan DATA & ATURAN DATA
-    │   ├── Barang.java                    (abstract class)
-    │   ├── BarangElektronik.java          (extends Barang)
-    │   ├── BarangNonElektronik.java       (extends Barang)
-    │   ├── Pemasok.java
-    │   └── Pengadaan.java
-    │
-    ├── view/                              ← lapisan TAMPILAN (input & output)
-    │   ├── BaseView.java                  (abstract class)
-    │   ├── EntitasView.java               (abstract class, extends BaseView)
-    │   ├── BarangView.java                (extends EntitasView)
-    │   ├── PemasokView.java               (extends EntitasView)
-    │   ├── PengadaanView.java             (extends EntitasView)
-    │   └── MenuView.java                  (extends BaseView)
-    │
-    └── controller/                        ← lapisan PENGHUBUNG
-        ├── Kelola.java                    (interface)
-        ├── MenuController.java
-        ├── BarangController.java          (implements Kelola)
-        ├── PemasokController.java         (implements Kelola)
-        └── PengadaanController.java       (implements Kelola)
-```
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/8dcb6403-55bf-48a9-9dda-7081769e01b8" />
+
 
 ### Penjelasan tiap package
 
@@ -122,27 +93,7 @@ sistemmanajemenCVMPK/
 
 ## **BAB III ALUR PROGRAM**
 
-### **3.1 Diagram Alur**
-
-```mermaid
-flowchart TD
-    A([Mulai]) --> B["main.SistemmanajemenCVMPK<br/>membuat Scanner + MenuController"]
-    B --> C["MenuController.jalankan()<br/>tampil menu utama"]
-    C --> D{Pilihan menu}
-    D -->|1| E["BarangController.jalankanMenu()"]
-    D -->|2| F["PemasokController.jalankanMenu()"]
-    D -->|3| G["PengadaanController.jalankanMenu()"]
-    D -->|4| H(["Keluar"])
-    D -->|lainnya| C
-    E --> I{"Sub-menu"}
-    F --> I
-    G --> I
-    I -->|Tambah / Tampilkan / Hapus / Update / Cari| J["Controller meminta input ke View<br/>→ membuat / mengubah objek Model<br/>→ View menampilkan hasil"]
-    J --> I
-    I -->|Kembali| C
-```
-
-### **3.2 Alur Pemanggilan MVC**
+### **3.1 Alur Pemanggilan MVC**
 
 Contoh alur pada saat **Tambah Barang**:
 
@@ -152,162 +103,138 @@ Contoh alur pada saat **Tambah Barang**:
 4. Model memeriksa aturan datanya. Jika dilanggar, Model melempar `IllegalArgumentException`.
 5. `BarangController` menyimpan objek ke `ArrayList<Barang>`, lalu meminta `BarangView` menampilkan pesan hasil.
 
-### **3.3 Menu Utama**
+Program dijalankan melalui class "SistemmanajemenCVMPK" yang berada pada package "main"
 
-Saat program dijalankan, sistem akan menampilkan menu utama:
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/0888ecbb-f88d-4fb6-87b2-3463619a8406" />
 
-```
-====================================================================
-             SISTEM MANAJEMEN CV MANDIRI PRIMA KREATIF              
-====================================================================
-1. Kelola Data Barang
-2. Kelola Data Pemasok
-3. Kelola Data Pengadaan
-4. Keluar
-====================================================================
-Pilih menu (1-4): 
-```
+
+### **3.2 Menu Utama**
+
+Saat program dijalankan, pengguna akan diberikan menu utama dari Sistem manajemen CV mandiri prima kreatif, yaitu;
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/6a1bb7b9-3be7-4aa0-b5a0-fe4e26f3cdc2" />
+
 
 ### **3.4 Kelola Data Barang**
 
-```
-====================================================================
-                         KELOLA DATA BARANG                         
-====================================================================
-1. Tambah Barang
-2. Tampilkan Barang
-3. Hapus Barang
-4. Update Stok
-5. Cari Barang
-6. Kembali
-====================================================================
-Pilih menu: 
-```
+Pada menu kelola data barang, terdapat beberapa pilihan yang dapat dipilih oleh pengguna yaitu;
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/7e05659b-eb1b-4da5-9dcf-a3b2ffcf12f5" />
+
+Pada pilihan **Tambah Barang**, pengguna dapat menginput ID barang, nama barang, stok, jenis barang, dan garansi.
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/af3e8ed8-2d0a-4fa1-a4d5-9d0d7c60a365" />
 
 Data barang terbagi menjadi dua jenis:
 
 - **Barang Elektronik**, memiliki atribut tambahan **garansi**.
 - **Barang Non-Elektronik**, memiliki atribut tambahan **kategori**.
 
+Barang elektronik memiliki atribut tambahan berupa garansi sesuai yang berfungsi sebagai jaminan ketahanan dari kualitas produk elektronik, sedangkan barang non-elektronik memiliki atribut tambahan berupa kategori yang berfungsi untuk mengategorikan produk tersebut sesuai fungsinya.
+
 Saat fitur **Tampilkan Barang** dijalankan, data otomatis dikelompokkan berdasarkan jenisnya:
 
-```
-====================================================================
-                           DAFTAR BARANG                            
-====================================================================
 
-|- BARANG ELEKTRONIK
---------------------------------------------------------------------
-ID Barang   : 1
-Nama        : Laptop ASUS
-Stok        : 10
-Garansi     : 2 Tahun
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/3859bcbd-07a9-44d5-8707-10207c8705c0" />
+
+Pada pilihan **Hapus Barang**, pengguna dapat menginput ID barang yang ingin dihapus dari data yang tersimpan.
 
 
-|- BARANG NON-ELEKTRONIK
---------------------------------------------------------------------
-ID Barang   : 2
-Nama        : Meja Kantor
-Stok        : 5
-Kategori    : Perlengkapan Kantor
---------------------------------------------------------------------
-====================================================================
-                      DATA SELESAI DITAMPILKAN                      
-====================================================================
-```
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/39cb770a-f279-4a36-9226-c08e265e30f2" />
+
+
+Pada pilihan **Update stok**, pengguna dapat menginput ID yang ingin diupdate serta jumlah stok baru yang ingin di perbarui.
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/778c8722-d103-4805-bd9c-d6126f0d0f3a" />
+
 
 Fitur **Cari Barang** dapat dilakukan berdasarkan **ID Barang** atau **Nama Barang**, setelah pengguna selesai menginput data yang ingin dicari, maka program akan langsung menampilkan data nya:
 
-```
-====================================================================
-                          CARI DATA BARANG                          
-====================================================================
-Cari berdasarkan:
-1. ID Barang
-2. Nama Barang
-Cara pencarian (1-2): 2
-Nama barang yang dicari: monitor
-====================================================================
-                          HASIL PENCARIAN                           
-====================================================================
 
-|- BARANG ELEKTRONIK
---------------------------------------------------------------------
-ID Barang   : 3
-Nama        : Monitor LG
-Stok        : 8
-Garansi     : 1 Tahun
---------------------------------------------------------------------
-====================================================================
-                      DATA SELESAI DITAMPILKAN                      
-====================================================================
-```
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/84364816-c0fb-4477-bf13-fe9e94e2616e" />
+
+
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/6d917e85-e2c0-49dd-8c9f-95e3372469ab" />
+
+
+Pada pilihan **Kembali**, pengguna akan di arahkan oleh sistem untuk kembali ke menu utama.
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/adb7e722-cc9b-4275-944f-dedac0dbe1ea" />
+
+
 
 ### **3.5 Kelola Data Pemasok**
 
 Di dalam menu kelola data pemasok terdapat beberapa opsi yang diberikan, yaitu tambah, tampilkan, hapus, update, dan kembali. Data pemasok terdiri dari ID, nama, alamat, dan nomor telepon (hanya angka) jika pengguna menginput selain angka, maka program akan langsung menampilkan pesan bahwa data yang di input oleh pengguna tidak sesuai. Setelah itu. pengguna akan diminta untuk menginput ulang data nya.
 
-```
-====================================================================
-                           TAMBAH DATA PEMASOK                          
-====================================================================
---------------------------------------------------------------------
-ID Pemasok (0 untuk kembali) : 3
-Nama Pemasok : PT Huawei co.id
-Alamat Pemasok  : China
-No Telepon  : +86 138 0013 8000
---------------------------------------------------------------------
-====================================================================
- >>>>>                 No Telepon harus berupa angka!          <<<<<            
-====================================================================
-```
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/18fff18e-dd24-41eb-a71c-aa4bd5fbc88f" />
+
+Pada pilihan **Tambah Pemasok**, pengguna dapat menginput ID pemasok, nama pemasok, alamat pemasok dan no telepon.
 
 
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/99cc8048-f559-4f0d-b434-4d4295306a65" />
+
+Saat fitur **Tampilkan Pemasok** dijalankan, sistem akan langsung menampilkan data secara otomatis.
 
 
-```
-====================================================================
-                           DAFTAR PEMASOK                           
-====================================================================
---------------------------------------------------------------------
-ID Pemasok  : 1
-Nama        : PT Sumber Elektronik
-Alamat      : Samarinda
-No Telepon  : 081234567890
---------------------------------------------------------------------
-====================================================================
-                      DATA SELESAI DITAMPILKAN                      
-====================================================================
-```
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/04b5332a-09ec-4f90-949e-6c8228d3327a" />
+
+
+Pada pilihan **Hapus Pemasok**, pengguna dapat menginput ID pemasok yang ingin dihapus dari data yang tersimpan.
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/e46c1f43-f1ac-4e23-826f-c18594081a58" />
+
+
+Pada pilihan **Update Pemasok**, pengguna dapat menginput ID yang ingin diupdate, nama baru, alamat baru serta no telepon yang ingin diperbarui.
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/94cc3fbb-1a27-416a-81c8-9a7a869682e6" />
+
+
+Pada pilihan **Kembali**, pengguna akan di arahkan oleh sistem untuk kembali ke menu utama.
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/0e88effa-fafd-4dba-9e03-77c9bcc02a1e" />
+
 
 ### **3.6 Kelola Data Pengadaan**
 
 Di dalam menu kelola data pengadaan terdapat beberapa opsi yang diberikan, yaitu tambah, tampilkan, hapus, update, dan kembali. Data pengadaan terdiri dari ID, tanggal (format `dd/MM/yyyy`), dan alamat. jika pengguna menginput tanggal lalu formatnya tidak sesuai, maka program akan langsung menampilkan pesan bahwa data yang di input oleh pengguna tidak sesuai. Setelah itu, pengguna akan diminta untuk menginput ulang data nya.
 
 
-```
-====================================================================
-                          DAFTAR PENGADAAN                          
-====================================================================
---------------------------------------------------------------------
-ID Pengadaan : 1
-Tanggal      : 18/09/2026
-Alamat       : Gudang CV MPK
---------------------------------------------------------------------
-====================================================================
-                      DATA SELESAI DITAMPILKAN                      
-====================================================================
-```
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/6d6a2439-48f3-4b77-95ab-b80b5b6dfbc6" />
+
+
+Pada pilihan **Tambah Pengadaan**, pengguna dapat menginput ID pengadaan, tanggal pengadaan, dan alamat pengadaan.
+
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/e8c6f444-0d02-4f78-b813-37c42f26ca37" />
+
+
+Saat fitur **Tampilkan Pengadaan** dijalankan, sistem akan langsung menampilkan data secara otomatis.
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/a1570adc-1816-4513-b227-35efc4960deb" />
+
+
+Pada pilihan **Hapus Pengadaan**, pengguna dapat menginput ID pengadaan yang ingin dihapus dari data yang tersimpan.
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/37e39543-507b-483e-9ec9-28e800e92bae" />
+
+Pada pilihan **Update Pengadaan**, pengguna dapat menginput ID yang ingin diupdate, tanggal baru, dan alamat baru yang ingin diperbarui.
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/aebd1001-cdf9-4f07-a5e3-f9a89c4a1450" />
+
+Pada pilihan **Kembali**, pengguna akan di arahkan oleh sistem untuk kembali ke menu utama.
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/63b94ed3-f06c-48d6-822f-ab4c7ba692fa" />
+
 
 ### **3.7 Keluar**
 
 Jika pengguna memilih menu 4 pada menu utama, program menampilkan pesan terima kasih lalu berhenti.
 
-```
-====================================================================
->>>>>  Terima kasih telah menggunakan sistem manajemen CV MPK  <<<<<
-====================================================================
-```
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/3df683c4-d41a-40b7-80e6-98245b3176d5" />
+
 
 ---
 
