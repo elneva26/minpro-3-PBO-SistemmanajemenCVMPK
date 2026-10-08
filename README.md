@@ -286,7 +286,7 @@ Contoh pada "model/Barang.java":
 
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/53d67193-29c1-4b1f-a524-677b6ac9df44" />
 
-<img width="975" height="678" alt="image" src="https://github.com/user-attachments/assets/869ca4f8-16d5-4677-8b82-c965bfac6956" />
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/869ca4f8-16d5-4677-8b82-c965bfac6956" />
 
        
 Poin penerapan encapsulation:
@@ -320,11 +320,23 @@ Sedangkan class BarangNonElektronik menggunakan public class BarangNonElektronik
 
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/b0aecf41-602d-4e58-86f9-94daac93dd93" />
 
+Atribut umum berupa ID barang, nama, dan stok diletakkan pada superclass barang. Constructor-nya dibuat protected agar hanya dapat diakses oleh subclass melalui super.
 
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/fbef77f9-e921-459c-99a1-13b789826b46" />
 
-- Atribut umum (`idBarang`, `nama`, `stok`) ditulis **sekali** di `Barang`.
-- Atribut khusus ada di subclass: `garansi` pada `BarangElektronik` dan `kategori` pada `BarangNonElektronik`.
-- Subclass memakai `super(...)` untuk menjalankan constructor milik `Barang`.
+Kemudian masing-masing subclass memiliki atribut khusus, yaitu;
+
+- BarangElektronik memiliki atribut garansi
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/fd18c5d9-1100-4e9d-bc17-cd6169af8e14" />
+
+- BarangNonElektronik memiliki atribut kategori
+
+<img width="975" height="290" alt="image" src="https://github.com/user-attachments/assets/683c7375-ba97-4a33-889a-3f44d7104281" />
+
+- Atribut umum ("idBarang", "nama", "stok") ditulis **sekali** di "Barang".
+- Atribut khusus ada di subclass: "garansi" pada "BarangElektronik" dan "kategori" pada "BarangNonElektronik".
+- Subclass memakai "super(...)" untuk menjalankan constructor milik "Barang".
 
 Inheritance juga dipakai pada package view:
 
