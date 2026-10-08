@@ -284,33 +284,16 @@ Semua atribut pada class Model dibuat `private` dan diakses melalui getter/sette
 
 Contoh pada `model/Barang.java`:
 
-```java
-public abstract class Barang {
+<img width="975" height="412" alt="image" src="https://github.com/user-attachments/assets/53d67193-29c1-4b1f-a524-677b6ac9df44" />
 
-    private final int idBarang;
-    private String nama;
-    private int stok;
-
-    public int getIdBarang() { return idBarang; }
-    public String getNama()  { return nama; }
-    public int getStok()     { return stok; }
-
-    public final void setStok(int stok) {
-        if (stok < 0) {
-            throw new IllegalArgumentException("Stok tidak boleh kurang dari 0!");
-        }
-        this.stok = stok;
-    }
-}
-```
-
+       
 Poin penerapan encapsulation:
 
-- Atribut `private`, sehingga tidak dapat diubah langsung dari class lain.
-- ID dibuat `final` dan tidak punya setter, karena ID tidak boleh berubah setelah objek dibuat.
-- Setter yang dibuka (`public`) hanya untuk data yang memang boleh diubah: `setStok` pada `Barang`, `setNama` / `setAlamat` / `setNoTelepon` pada `Pemasok`, dan `setTanggal` / `setAlamat` pada `Pengadaan`.
-- Setter `setNama` (pada `Barang`), `setGaransi`, dan `setKategori` dibuat `private` karena hanya dipakai saat objek dibuat.
-- Konsep yang sama diterapkan pada `Pemasok` dan `Pengadaan`.
+- Atribut "private", sehingga tidak dapat diubah langsung dari class lain.
+- ID dibuat "final" dan tidak punya setter, karena ID tidak boleh berubah setelah objek dibuat.
+- Setter yang dibuka ("public") hanya untuk data yang memang boleh diubah: "setStok" pada "Barang", "setNama" / "setAlamat" / "setNoTelepon" pada "Pemasok", dan "setTanggal" / "setAlamat" pada "Pengadaan".
+- Setter "setNama" (pada "Barang"), "setGaransi", dan "setKategori" dibuat "private" karena hanya dipakai saat objek dibuat.
+- Konsep yang sama diterapkan pada "Pemasok" dan "Pengadaan".
 
 ### **5.2 Inheritance**
 
