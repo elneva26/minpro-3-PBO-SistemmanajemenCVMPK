@@ -40,10 +40,12 @@ Program mengelola tiga jenis data, yaitu data barang, data pemasok, dan data pen
 
 Sistem Manajemen CV Mandiri Prima Kreatif dirancang dengan tujuan sebagai berikut:
 
-- Membantu mengelola data barang, pemasok, dan pengadaan secara terstruktur.
-- Memudahkan proses tambah, tampil, update, dan hapus data pada sistem.
-- Menerapkan konsep pemrograman berorientasi objek seperti encapsulation, inheritance, dan polymorphism dalam program.
-- Memastikan data yang dimasukkan sesuai melalui proses validasi input.
+* Membantu mengelola data barang, pemasok, dan pengadaan secara terstruktur.
+* Memudahkan proses tambah, tampil, update, hapus, dan cari data (fungsi pencarian khusus pada data barang) terdapat dalam sistem.
+* Menerapkan konsep pemrograman berorientasi objek, yaitu encapsulation, inheritance, polymorphism (overriding dan overloading), dan abstraction (abstract class dan abstract method) dalam program.
+* Menerapkan struktur proyek MVC (Model, View, Controller) agar tugas dari setiap fungsi dalam bagian program terpisah dan kode lebih mudah dikelola.
+* Menerapkan interface sebagai kontrak yang menyeragamkan seluruh controller data.
+* Memastikan data yang dimasukkan sesuai melalui proses validasi input pada view dan model.
 
 ### **1.3 Alur Singkat**
 Alur program dimulai dengan menampilkan menu utama Sistem Manajemen CV Mandiri Prima Kreatif, yaitu kelola data barang, kelola data pemasok, kelola data pengadaan, dan keluar. Menu utama diatur oleh MenuController, dimana menu tersebut meneruskan pilihan pengguna ke controller data yang sesuai. Menu utama akan terus ditampilkan sampai pengguna memilih menu keluar. Setiap menu kelola data memiliki sub-menu sendiri yang juga berulang sampai pengguna memilih kembali.
@@ -56,13 +58,18 @@ Alur program dimulai dengan menampilkan menu utama Sistem Manajemen CV Mandiri P
 - Data barang yang ditampilkan dikelompokkan otomatis berdasarkan jenisnya.
 - Pengguna juga dapat menghapus barang berdasarkan ID, memperbarui stok barang, serta mencari barang berdasarkan ID atau berdasarkan nama.
 
-Pada menu kelola data pemasok, pengguna dapat menambahkan data pemasok dengan memasukkan ID pemasok, nama pemasok, alamat, dan nomor telepon yang hanya boleh berisi angka. Data pemasok yang telah tersimpan dapat ditampilkan, dihapus berdasarkan ID, serta diperbarui (nama, alamat, dan nomor telepon).
+-> Pada menu kelola data pemasok, pengguna dapat menambahkan data pemasok dengan memasukkan ID pemasok, nama pemasok, alamat, dan nomor telepon yang hanya boleh berisi angka.
+- Data pemasok yang telah tersimpan dapat ditampilkan, dihapus berdasarkan ID, serta diperbarui (nama, alamat, dan nomor telepon).
 
-Pada menu kelola data pengadaan, pengguna dapat menambahkan data pengadaan dengan memasukkan ID pengadaan, tanggal pengadaan dengan format dd/MM/yyyy, dan alamat pengadaan. Data pengadaan yang telah tersimpan dapat ditampilkan, dihapus berdasarkan ID, serta diperbarui (tanggal dan alamat).
+-> Pada menu kelola data pengadaan, pengguna dapat menambahkan data pengadaan dengan memasukkan ID pengadaan, tanggal pengadaan dengan format dd/MM/yyyy, dan alamat pengadaan.
+- Data pengadaan yang telah tersimpan dapat ditampilkan, dihapus berdasarkan ID, serta diperbarui (tanggal dan alamat).
 
-Setiap proses input dilengkapi dengan validasi pada dua lapis. Lapis pertama ada di View, yang memastikan input tidak kosong, berupa angka jika yang diminta angka, dan memenuhi nilai minimal; input yang salah diminta ulang sampai benar. Lapis kedua ada di Model, yang menjaga aturan data seperti stok tidak boleh kurang dari 0, nomor telepon hanya angka, dan tanggal harus nyata. Jika aturan dilanggar, Model melempar IllegalArgumentException dan Controller menampilkan pesannya melalui View.
+-> Setiap proses input dilengkapi dengan validasi pada dua lapis. 
+- Lapis pertama ada di View, yang memastikan input tidak kosong, berupa angka jika yang diminta angka, dan memenuhi nilai minimal; input yang salah diminta ulang sampai benar.
+- Lapis kedua ada di Model, yang menjaga aturan data seperti stok tidak boleh kurang dari 0, nomor telepon hanya angka, dan tanggal harus nyata.
+Jika aturan pada program dilanggar oleh pengguna, maka model akan melempar IllegalArgumentException dan Controller menampilkan pesannya melalui view.
 
-Dalam setiap proses, pembagian tugas mengikuti pola MVC: Controller meminta input kepada View, membuat atau mengubah objek Model, menyimpannya ke dalam ArrayList, lalu meminta View menampilkan hasilnya kepada pengguna.
+Dalam setiap proses, pembagian tugas mengikuti pola MVC, yaitu controller meminta input kepada view, membuat atau mengubah objek Model, menyimpannya ke dalam ArrayList, lalu meminta View menampilkan hasilnya kepada pengguna.
 
 --------------
 
