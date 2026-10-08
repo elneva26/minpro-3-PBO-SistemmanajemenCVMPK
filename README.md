@@ -470,7 +470,7 @@ Contoh pemakaian overloading `cariBarang` pada `BarangController`:
 
 ---
 
-## **BAB VIII INTERFACE**
+## **BAB VII INTERFACE**
 
 ### **7.1 Letak Penerapan Interface**
 
@@ -502,31 +502,18 @@ Setiap controller menyetujui kontrak tersebut dengan `implements` dan wajib meng
 
 `MenuController` hanya mengenal kontraknya (apa yang dikerjakan), bukan cara tiap controller mengerjakannya:
 
-```java
-private final Kelola kelolaBarang;
-private final Kelola kelolaPemasok;
-private final Kelola kelolaPengadaan;
-...
-case 1 -> kelolaBarang.jalankanMenu();
-case 2 -> kelolaPemasok.jalankanMenu();
-case 3 -> kelolaPengadaan.jalankanMenu();
-```
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/7fadb034-eedf-42b2-88a8-c7f08e9e4a19" />
+
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/62aa0482-b5c0-41f5-86ad-baedd4414403" />
+
 
 Dengan cara ini seluruh controller memiliki nama method yang seragam, dan controller baru (misalnya untuk data pelanggan) dapat ditambahkan tanpa mengubah cara `MenuController` memanggilnya.
 
 ---
 
-## **BAB VIII PERBAIKAN DARI EVALUASI ASISTEN LAB**
-
-| Evaluasi | Perbaikan |
-|---|---|
-| Validasi input sudah bagus | Seluruh aturan validasi dipertahankan dan dipusatkan di `BaseView` serta class Model, sehingga tidak ditulis berulang. |
-| `Service.java` sudah bagus tetapi terlalu panjang, sebaiknya dipisah sesuai konteks | `Service`, `ServiceBarang`, `ServicePemasok`, dan `ServicePengadaan` dipecah menjadi `MenuController`, `BarangController`, `PemasokController`, `PengadaanController` (alur) dan `MenuView`, `BarangView`, `PemasokView`, `PengadaanView` (input/output), ditambah `BaseView` dan `EntitasView` untuk kode bersama. Ukuran tiap controller kini sekitar 110 sampai 160 baris. |
-| Dead code pada getter `getGaransi` dan `getKategori` | Kedua getter kini dipakai oleh `getNilaiDetail()` pada masing-masing subclass, lalu ditampilkan oleh `BarangView`. Setter dan getter lain yang tidak terpakai juga dihapus (misalnya `setIdBarang`). |
-
----
-
-## **BAB IX KESIMPULAN**
+## **BAB VIII KESIMPULAN**
 
 Program Sistem Manajemen CV Mandiri Prima Kreatif adalah aplikasi Java yang mengelola data barang, pemasok, dan pengadaan. Pada Mini Project 3, program dikembangkan dengan:
 
