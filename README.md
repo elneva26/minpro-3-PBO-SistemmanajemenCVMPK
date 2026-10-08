@@ -415,44 +415,24 @@ Dengan adanya dummy data tersebut, pengguna tidak perlu melakukan input terlebih
 
 `model/Barang.java`:
 
-```java
-public abstract String getJenis();
-public abstract String getLabelDetail();
-public abstract String getNilaiDetail();
-```
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/962cf96a-9a29-4639-8419-4353ca84bc15" />
+
 
 `view/EntitasView.java`:
 
-```java
-protected abstract String namaEntitas();
-protected abstract void tampilDetail(T item);
-```
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/9f6f97d5-d73a-45bf-82ee-9f1185c397d1" />
+
 
 Method tanpa isi tersebut **wajib** diisi oleh subclass. Contoh pada `BarangElektronik`:
 
-```java
-@Override
-public String getJenis() { return "BARANG ELEKTRONIK"; }
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/84db99a3-1a23-4ab6-a478-862ecb6ede40" />
 
-@Override
-public String getLabelDetail() { return "Garansi"; }
-
-@Override
-public String getNilaiDetail() { return getGaransi(); }
-```
 
 dan pada `BarangNonElektronik`:
 
-```java
-@Override
-public String getJenis() { return "BARANG NON-ELEKTRONIK"; }
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/0729c1de-aafc-458c-8b95-36f6e8edcfd4" />
 
-@Override
-public String getLabelDetail() { return "Kategori"; }
 
-@Override
-public String getNilaiDetail() { return getKategori(); }
-```
 
 ### **6.2 Polymorphism: Overriding**
 
