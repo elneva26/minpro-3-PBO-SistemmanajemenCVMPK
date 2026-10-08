@@ -513,11 +513,6 @@ Dengan cara ini seluruh controller memiliki nama method yang seragam, dan contro
 
 ---
 
-## **BAB IX STRUKTUR MVC**
-
-Program menerapkan struktur MVC (Model-View-Controller) dengan membagi class ke dalam beberapa package.
-
-Struktur package program, yaitu;
 
 ## **BAB IX KESIMPULAN**
 
