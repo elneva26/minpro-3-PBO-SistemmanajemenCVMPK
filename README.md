@@ -6,11 +6,11 @@
 
 ---
 
-Nama : **[ISI NAMA LENGKAP]**
+Nama : **Elena Dementieva**
 
-NIM : **[ISI NIM]**
+NIM : **2509116008**
 
-Kelas : **[ISI KELAS]**
+Kelas : **Sistem Informasi A'25**
 
 ---
 
@@ -32,42 +32,36 @@ Kelas : **[ISI KELAS]**
 
 ### **1.1 Deskripsi Singkat Program**
 
-Sistem Manajemen CV Mandiri Prima Kreatif adalah program berbasis Java (aplikasi konsol) untuk membantu mengelola data pada CV Mandiri Prima Kreatif yang bergerak di bidang elektronik dan pengadaan barang.
+Sistem Manajemen CV Mandiri Prima Kreatif adalah program berbasis Java untuk membantu mengelola data pada CV Mandiri Prima Kreatif yang bergerak di bidang elektronik dan pengadaan barang.
 
 Program mengelola tiga jenis data, yaitu **data barang**, **data pemasok**, dan **data pengadaan**, dengan konsep CRUD (Create, Read, Update, Delete). Khusus data barang, tersedia fitur tambahan **Cari Barang** (berdasarkan ID atau nama). Data disimpan sementara di dalam `ArrayList` selama program berjalan, dan sudah tersedia data awal (dummy data) pada tiap controller.
 
-### **1.2 Ketentuan Tugas dan Pemenuhannya**
+### **1.2 Tujuan**
 
-Mini Project 3 adalah lanjutan dari Mini Project 2. Berikut ketentuan tugas dan letak penerapannya:
+Sistem Manajemen CV Mandiri Prima Kreatif dirancang dengan tujuan sebagai berikut:
 
-| Ketentuan | Status | Letak penerapan |
-|---|---|---|
-| Polymorphism: **overriding** | ✅ | Subclass `Barang`, class View, dan semua controller (lihat [6.2](#62-polymorphism-overriding)) |
-| Polymorphism: **overloading** | ✅ | `BarangController.cariBarang(...)`, `BaseView.bacaAngka(...)`, `BaseView.bacaTeks(...)`, `EntitasView.tampilDaftar(...)` (lihat [6.3](#63-polymorphism-overloading)) |
-| Abstraction: **abstract class** | ✅ | `Barang`, `BaseView`, `EntitasView` (lihat [6.1](#61-abstraction)) |
-| Abstraction: **abstract method** | ✅ | `Barang.getJenis()`, `getLabelDetail()`, `getNilaiDetail()`; `EntitasView.namaEntitas()`, `tampilDetail()` |
-| Struktur proyek **MVC** | ✅ | Package `model`, `view`, `controller` (+ `main`) (lihat [BAB II](#bab-ii-struktur-package)) |
-| Nilai tambah: **Interface** | ✅ | `controller/Kelola.java` (lihat [BAB VII](#bab-vii-nilai-tambah)) |
-| Dokumentasi pada README.md | ✅ | Dokumen ini |
+- Membantu mengelola data barang, pemasok, dan pengadaan secara terstruktur.
+- Memudahkan proses tambah, tampil, update, dan hapus data pada sistem.
+- Menerapkan konsep pemrograman berorientasi objek seperti encapsulation, inheritance, dan polymorphism dalam program.
+- Memastikan data yang dimasukkan sesuai melalui proses validasi input.
 
-### **1.3 Cara Menjalankan**
+### **1.3 Alur Singkat**
 
-1. Buka proyek melalui Apache NetBeans (proyek Maven).
-2. Jalankan class `SistemmanajemenCVMPK` pada package `main`.
+Alur program dimulai dengan menampilkan menu utama sistem manajemen CV Mandiri Prima Kreatif dimana pengguna dapat memilih menu sesuai kebutuhan, seperti mengelola data barang, mengelola data pemasok, mengelola data pengadaan, ataupun keluar dari program.
 
-Atau lewat terminal:
+Pada menu kelola data barang, pengguna dapat menambahkan data barang dengan memasukkan ID barang, nama barang, dan stok, selanjutnya pengguna kemudian dapat memilih jenis barang, yaitu Barang Elektronik atau Barang Non-Elektronik. Barang elektronik memiliki data tambahan berupa garansi, sedangkan barang non-elektronik memiliki data tambahan berupa kategori.
 
-```
-mvn compile exec:java
-```
+Pada menu kelola data pemasok, pengguna dapat menambahkan data pemasok dengan memasukkan ID pemasok, nama pemasok, alamat, dan nomor telepon. Data pemasok yang telah tersimpan dapat ditampilkan, diperbarui, maupun dihapus.
 
-> Pada `pom.xml`, `exec.mainClass` diatur ke `main.SistemmanajemenCVMPK`.
+Pada menu kelola data pengadaan, pengguna dapat menambahkan data pengadaan dengan memasukkan ID pengadaan, tanggal pengadaan, dan alamat pengadaan. Data pengadaan yang telah tersimpan juga dapat ditampilkan, diperbarui, maupun dihapus.
 
----
+Setiap proses input dilengkapi dengan validasi untuk memastikan data yang dimasukkan tidak kosong dan sesuai dengan tipe data yang ditentukan dan program ini akan terus menampilkan menu utama sampai pengguna memilih menu keluar.
+
+--------------
 
 ## **BAB II STRUKTUR PACKAGE**
 
-Program menerapkan struktur **MVC (Model-View-Controller)** dengan satu package tambahan `main` sebagai titik masuk aplikasi.
+Program menerapkan struktur **MVC (Model-View-Controller)** dengan satu package tambahan yaitu `main` sebagai jalan masuk ke dalam program.
 
 ```
 sistemmanajemenCVMPK/
@@ -75,7 +69,7 @@ sistemmanajemenCVMPK/
 ├── README.md
 └── src/main/java/
     │
-    ├── main/                              ← titik masuk aplikasi
+    ├── main/                              ← jalan masuk program
     │   └── SistemmanajemenCVMPK.java
     │
     ├── model/                             ← lapisan DATA & ATURAN DATA
