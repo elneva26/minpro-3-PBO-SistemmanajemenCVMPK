@@ -64,7 +64,7 @@ Alur program dimulai dengan menampilkan menu utama Sistem Manajemen CV Mandiri P
 -> Pada menu kelola data pengadaan, pengguna dapat menambahkan data pengadaan dengan memasukkan ID pengadaan, tanggal pengadaan dengan format dd/MM/yyyy, dan alamat pengadaan.
 - Data pengadaan yang telah tersimpan dapat ditampilkan, dihapus berdasarkan ID, serta diperbarui (tanggal dan alamat).
 
--> Setiap proses input dilengkapi dengan validasi pada dua lapis. 
+-> Setiap proses input dilengkapi dengan validasi dua lapis, yaitu; 
 - Lapis pertama ada di View, yang memastikan input tidak kosong, berupa angka jika yang diminta angka, dan memenuhi nilai minimal; input yang salah diminta ulang sampai benar.
 - Lapis kedua ada di Model, yang menjaga aturan data seperti stok tidak boleh kurang dari 0, nomor telepon hanya angka, dan tanggal harus nyata.
 Jika aturan pada program dilanggar oleh pengguna, maka model akan melempar IllegalArgumentException dan Controller menampilkan pesannya melalui view.
