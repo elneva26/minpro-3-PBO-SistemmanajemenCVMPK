@@ -65,11 +65,11 @@ Alur program dimulai dengan menampilkan menu utama Sistem Manajemen CV Mandiri P
 - Data pengadaan yang telah tersimpan dapat ditampilkan, dihapus berdasarkan ID, serta diperbarui (tanggal dan alamat).
 
 -> Setiap proses input dilengkapi dengan validasi dua lapis, yaitu; 
-- Lapis pertama ada di View, yang memastikan input tidak kosong, berupa angka jika yang diminta angka, dan memenuhi nilai minimal; input yang salah diminta ulang sampai benar.
-- Lapis kedua ada di Model, yang menjaga aturan data seperti stok tidak boleh kurang dari 0, nomor telepon hanya angka, dan tanggal harus nyata.
-Jika aturan pada program dilanggar oleh pengguna, maka model akan melempar IllegalArgumentException dan Controller menampilkan pesannya melalui view.
+- Lapis pertama ada di view, yang memastikan input tidak kosong, berupa angka jika yang diminta angka, dan memenuhi nilai minimal, lalu jika terdapat input yang salah, sistem akan langsung meminta input ulang sampai benar.
+- Lapis kedua ada di model, yang menjaga aturan data seperti stok tidak boleh kurang dari 0, nomor telepon hanya angka (tidak boleh huruf atau simbol), dan tanggal harus sesuai format penulisan tanggal yaitu dd/MM/yyyy.
+Jika aturan pada program dilanggar oleh pengguna, maka model akan melempar IllegalArgumentException dan controller menampilkan pesannya melalui view.
 
-Dalam setiap proses, pembagian tugas mengikuti pola MVC, yaitu controller meminta input kepada view, membuat atau mengubah objek Model, menyimpannya ke dalam ArrayList, lalu meminta View menampilkan hasilnya kepada pengguna.
+Dalam setiap proses, pembagian tugas mengikuti pola MVC, yaitu controller meminta input kepada view, dan membuat ataupun mengubah objek model, lalu menyimpannya ke dalam ArrayList, setelah itu meminta view menampilkan hasilnya kepada pengguna.
 
 --------------
 
