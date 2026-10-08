@@ -21,7 +21,7 @@ Kelas : **Sistem Informasi A'25**
 - [BAB III Alur Program](#bab-iii-alur-program)
 - [BAB IV Validasi Input](#bab-iv-validasi-input)
 - [BAB V Encapsulation dan Inheritance](#bab-v-encapsulation-dan-inheritance)
-- [BAB VI Dummy data pada arrayList](#bab-vi-dummy-data-pada-arrayList)
+- [BAB VI Dummy data pada arrayList](#bab-vi-dummy-data-pada-arraylist)
 - [BAB VII Polymorphism dan Abstraction](#bab-vii-polymorphism-dan-abstraction)
 - [BAB VIII Interface](#bab-viii-interface)
 - [BAB IX Kesimpulan](#bab-ix-kesimpulan)
