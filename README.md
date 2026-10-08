@@ -259,8 +259,20 @@ Contoh hasil validasi saat **Tambah Barang** (input salah diulang sampai benar):
 
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/8a75e6b7-6ff8-4e75-90e5-662daeb1ecb9" />
 
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/686f861b-e8f4-4808-9f33-717a5aa5b684" />
+
+Contoh hasil validasi saat **Tambah Pemasok** (input salah diulang sampai benar):
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/a065e70d-a3a1-4e23-b2b7-345794561dfb" />
+
+Contoh hasil validasi saat **Tambah Pengadaan** (input salah diulang sampai benar):
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/333a3e9a-b70c-4e18-949b-c64e99117325" />
 
 Validasi lain: input menu yang bukan angka ditolak dengan pesan "Input harus berupa angka!", dan angka di luar pilihan ditolak dengan "Pilihan tidak valid!".
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/2ec7c118-4f26-4858-b9d5-b3e9409fd3da" />
+
 
 ---
 
